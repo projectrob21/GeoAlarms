@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D1217EE8F884FDA98025D50F184A27D1'
+               BlueprintIdentifier = '6F26A5C59268AD08C98B1E334F95B6F9'
                BlueprintName = 'Pods-GeoAlarms'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods-GeoAlarms.framework'>
