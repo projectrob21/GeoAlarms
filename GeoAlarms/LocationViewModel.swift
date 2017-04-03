@@ -6,7 +6,7 @@
 //  Copyright © 2017 Robert Deans. All rights reserved.
 //
 
-//import GoogleMaps
+import GoogleMaps
 
 // Presents VC requesting to change settings
 protocol RequestLocationAlertDelegate: class {
@@ -116,6 +116,7 @@ extension LocationViewModel: CLLocationManagerDelegate {
     
 }
 
+// *** HOW ACCURATE IS THIS 
 extension LocationViewModel: RegionsToMonitorDelegate {
     
     func addRegionToMonitor(region: CLCircularRegion) {

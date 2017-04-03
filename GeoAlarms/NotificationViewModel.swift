@@ -10,9 +10,9 @@ import GoogleMaps
 import UserNotifications
 
 
-protocol NapperAlarmsDelegate: class {
-    func addAlarm(_ alarm: Alarm)
-    func removeAlarm(_ alarm: Alarm)
+protocol AlarmsManagerDelegate: class {
+    func addNotification(for alarm: Alarm)
+    func removeNotification(for alarm: Alarm)
 }
 
 final class NotificationViewModel: NSObject {
@@ -27,7 +27,6 @@ final class NotificationViewModel: NSObject {
     var distanceToStation = 0.0
     
 //    weak var distanceDelegate: GetDistanceDelegate?
-
     var regionsToMonitorDelegate: RegionsToMonitorDelegate?
     
     
@@ -50,9 +49,9 @@ final class NotificationViewModel: NSObject {
 
 
 // MARK: Alarms Delegate
-extension NotificationViewModel: NapperAlarmsDelegate, UNUserNotificationCenterDelegate {
+extension NotificationViewModel: AlarmsManagerDelegate, UNUserNotificationCenterDelegate {
     
-    func addAlarm(_ alarm: Alarm) {
+    func addNotification(for alarm: Alarm) {
 
         alarm.isActive = true
         user.alarms.append(alarm)
@@ -87,7 +86,8 @@ extension NotificationViewModel: NapperAlarmsDelegate, UNUserNotificationCenterD
     }
 
     
-    func removeAlarm(_ alarm: Alarm) {
+    func removeNotification(for alarm: Alarm) {
+        
         alarm.isActive = false
         for (index, destination) in user.alarms.enumerated() {
             if destination.name == alarm.name {
