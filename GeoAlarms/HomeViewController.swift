@@ -13,6 +13,8 @@ import SnapKit
 class HomeViewController: UIViewController {
 
     let store = DataStore.shared
+    let locationViewModel = LocationViewModel()
+    let notificationViewModel = NotificationViewModel()
     
     var camera: GMSCameraPosition!
     var googleMapView: GMSMapView!
@@ -114,8 +116,30 @@ extension HomeViewController: GMSMapViewDelegate {
     
 }
 
-extension HomeViewController {
-//    
+extension HomeViewController: RequestLocationAlertDelegate {
+
+    func presentLocationRequestAlert() {
+        print("present alert delegate called")
+        
+        let alertController = UIAlertController(
+            title: "Background Location Access Disabled",
+            message: "In order to be notified about adorable kittens near you, please open this app's settings and set location access to 'Always'.",
+            preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        let openAction = UIAlertAction(title: "Open Settings", style: .default) { (action) in
+            if let url = URL(string:UIApplicationOpenSettingsURLString) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+        alertController.addAction(openAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    
 //    func presentAddUserController() {
 //        alarmWindowViewController = AlarmWindowViewController()
 //        alarmWindowViewController.parentVC = self

@@ -18,6 +18,7 @@ final class Location: Object {
     var clLocation: CLLocation {
         return CLLocation(latitude: self.latitude, longitude: self.longitude)
     }
+
     
     convenience init(clLocation: CLLocation) {
         self.init()

@@ -6,11 +6,11 @@
 //  Copyright © 2017 Robert Deans. All rights reserved.
 //
 
-import GoogleMaps
+//import GoogleMaps
 
-// Used for testing distance to destination
-protocol PresentAlertDelegate: class {
-    func presentAlert()
+// Presents VC requesting to change settings
+protocol RequestLocationAlertDelegate: class {
+    func presentLocationRequestAlert()
 }
 protocol GetDistanceDelegate: class {
     func distanceToStation(distance: Double)    
@@ -25,7 +25,7 @@ final class LocationViewModel: NSObject {
     var distanceToStation = 0.0
     
     weak var distanceDelegate: GetDistanceDelegate?
-    var presentAlertDelegate: PresentAlertDelegate?
+    var requestLocationAlertDelegate: RequestLocationAlertDelegate?
 
     convenience init(napper: User) {
         self.init()
@@ -55,8 +55,8 @@ extension LocationViewModel: CLLocationManagerDelegate {
     
     func requestLocationAuthorization() {
         if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
-            print("authorization for location is NOT ALWAYS; hashValue: \(CLLocationManager.authorizationStatus().hashValue)")
-            presentAlertDelegate?.presentAlert()
+            print("authorization for location is NOT set permitted; hashValue: \(CLLocationManager.authorizationStatus().hashValue)")
+            requestLocationAlertDelegate?.presentLocationRequestAlert()
             
         } else {
             locationManager.requestLocation()
@@ -72,7 +72,7 @@ extension LocationViewModel: CLLocationManagerDelegate {
             print("napper re-initialized with location coordinate")
             
         } else {
-            presentAlertDelegate?.presentAlert()
+            requestLocationAlertDelegate?.presentLocationRequestAlert()
         }
     }
     
@@ -82,30 +82,19 @@ extension LocationViewModel: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
+        if let currentLocation = locations.last {
+            user.coordinate = Location(clLocation: currentLocation)
+        }
         
-        
-        
-        
-        
-        
-        
-        
-        guard let customLocation = Location(clLocation: locations?.last) else { print("Error unwrapping clLocation"); return }
-        
-        napper.coordinate = customLocation
-        
-        guard let napperLocation = user.coordinate else { print("didUpdateLocations - error getting napper coordinate"); return }
-        print("didUpdateLocations - napper coordinate = \(napperLocation)")
-        
-        
+        // *** alarms must sort by proximity...
         if user.alarms.count > 0 {
             
-            let nextDestination = user.alarms[0]
-            distanceToStation = nextDestination.location!.distance(from: napperLocation)
-            distanceDelegate?.distanceToStation(distance: distanceToStation)
-            print("Napper is currently \(distanceToStation) meters from their next destination")
+            let distanceToAlarm = 0.0
             
-            if distanceToStation < proximityRadius {
+            distanceDelegate?.distanceToStation(distance: distanceToAlarm)
+            print("Napper is currently \(distanceToAlarm) meters from their next destination")
+            
+            if distanceToAlarm < proximityRadius {
                 
                 print("SENDING NOTIFICATION")
                 
@@ -114,9 +103,7 @@ extension LocationViewModel: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        
         print("DID ENTER THE REGION!!!!!!")
-        
     }
     
     func locationManagerDidPauseLocationUpdates(_ manager: CLLocationManager) {

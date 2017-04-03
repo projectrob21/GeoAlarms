@@ -25,13 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        /*
+        
          // To delete all data and start fresh again
          
-         try! store.realm.write {
-         store.realm.deleteAll()
-         }
-         */
+//         try! store.realm.write {
+//         store.realm.deleteAll()
+//         }
+ 
         
         // Sees if a user exists in Realm database; if not initializes one
         if store.realm.objects(User.self).count == 0 {
