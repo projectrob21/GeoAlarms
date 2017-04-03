@@ -8,6 +8,8 @@
 
 import Foundation
 import RealmSwift
+import CoreLocation
+
 
 final class Location: Object {
     

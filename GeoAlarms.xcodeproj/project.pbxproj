@@ -15,6 +15,8 @@
 		E85D8BE01E902FF4009A9618 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85D8BDF1E902FF4009A9618 /* MapView.swift */; };
 		E85D8BE21E902FFF009A9618 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85D8BE11E902FFF009A9618 /* DataStore.swift */; };
 		E85D8BE41E90300B009A9618 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85D8BE31E90300B009A9618 /* ColorExtensions.swift */; };
+		E85D8BE91E92B593009A9618 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85D8BE81E92B593009A9618 /* LocationViewModel.swift */; };
+		E85D8BEB1E92B5AD009A9618 /* DestinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85D8BEA1E92B5AD009A9618 /* DestinationViewModel.swift */; };
 		E8DEFDC71E902AB600B58697 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DEFDC61E902AB600B58697 /* AppDelegate.swift */; };
 		E8DEFDC91E902AB600B58697 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DEFDC81E902AB600B58697 /* HomeViewController.swift */; };
 		E8DEFDCE1E902AB600B58697 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8DEFDCD1E902AB600B58697 /* Assets.xcassets */; };
@@ -32,6 +34,8 @@
 		E85D8BDF1E902FF4009A9618 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		E85D8BE11E902FFF009A9618 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		E85D8BE31E90300B009A9618 /* ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		E85D8BE81E92B593009A9618 /* LocationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		E85D8BEA1E92B5AD009A9618 /* DestinationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationViewModel.swift; sourceTree = "<group>"; };
 		E8DEFDC31E902AB600B58697 /* GeoAlarms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoAlarms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8DEFDC61E902AB600B58697 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8DEFDC81E902AB600B58697 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +73,43 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E85D8BE51E92B53A009A9618 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E85D8BD71E902FD9009A9618 /* User.swift */,
+				E85D8BD91E902FDE009A9618 /* Alarm.swift */,
+				E85D8BDB1E902FE4009A9618 /* Location.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E85D8BE61E92B545009A9618 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E85D8BDF1E902FF4009A9618 /* MapView.swift */,
+				E85D8BDD1E902FEE009A9618 /* AlarmWindowView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E85D8BE71E92B551009A9618 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E8DEFDC61E902AB600B58697 /* AppDelegate.swift */,
+				E8DEFDC81E902AB600B58697 /* HomeViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E85D8BEC1E92B69B009A9618 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				E85D8BE81E92B593009A9618 /* LocationViewModel.swift */,
+				E85D8BEA1E92B5AD009A9618 /* DestinationViewModel.swift */,
+			);
+			name = "View Model";
+			sourceTree = "<group>";
+		};
 		E8DEFDBA1E902AB500B58697 = {
 			isa = PBXGroup;
 			children = (
@@ -90,14 +131,11 @@
 		E8DEFDC51E902AB600B58697 /* GeoAlarms */ = {
 			isa = PBXGroup;
 			children = (
-				E85D8BD71E902FD9009A9618 /* User.swift */,
-				E85D8BD91E902FDE009A9618 /* Alarm.swift */,
-				E85D8BDB1E902FE4009A9618 /* Location.swift */,
-				E85D8BDF1E902FF4009A9618 /* MapView.swift */,
-				E85D8BDD1E902FEE009A9618 /* AlarmWindowView.swift */,
-				E8DEFDC61E902AB600B58697 /* AppDelegate.swift */,
-				E8DEFDC81E902AB600B58697 /* HomeViewController.swift */,
 				E85D8BE11E902FFF009A9618 /* DataStore.swift */,
+				E85D8BE51E92B53A009A9618 /* Model */,
+				E85D8BE61E92B545009A9618 /* View */,
+				E85D8BEC1E92B69B009A9618 /* View Model */,
+				E85D8BE71E92B551009A9618 /* Controller */,
 				E85D8BE31E90300B009A9618 /* ColorExtensions.swift */,
 				E8DEFDCD1E902AB600B58697 /* Assets.xcassets */,
 				E8DEFDCF1E902AB600B58697 /* LaunchScreen.storyboard */,
@@ -232,10 +270,12 @@
 				E85D8BE01E902FF4009A9618 /* MapView.swift in Sources */,
 				E85D8BE21E902FFF009A9618 /* DataStore.swift in Sources */,
 				E8DEFDC91E902AB600B58697 /* HomeViewController.swift in Sources */,
+				E85D8BE91E92B593009A9618 /* LocationViewModel.swift in Sources */,
 				E8DEFDC71E902AB600B58697 /* AppDelegate.swift in Sources */,
 				E85D8BDC1E902FE4009A9618 /* Location.swift in Sources */,
 				E85D8BE41E90300B009A9618 /* ColorExtensions.swift in Sources */,
 				E85D8BD81E902FD9009A9618 /* User.swift in Sources */,
+				E85D8BEB1E92B5AD009A9618 /* DestinationViewModel.swift in Sources */,
 				E85D8BDE1E902FEE009A9618 /* AlarmWindowView.swift in Sources */,
 				E85D8BDA1E902FDE009A9618 /* Alarm.swift in Sources */,
 			);

@@ -10,8 +10,6 @@ import Foundation
 import RealmSwift
 
 
-
-
 final class DataStore {
     
     static let shared = DataStore()
