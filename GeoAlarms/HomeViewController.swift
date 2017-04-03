@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
     var googleMapView: GMSMapView!
     var markerArray = [GMSMarker]()
     
-    var alarmWindowViewController: AlarmWindowViewController!
+    var newAlarmViewController: NewAlarmViewController!
 
     
     override func viewDidLoad() {
@@ -130,41 +130,32 @@ extension HomeViewController: RequestLocationAlertDelegate {
     
     
     func presentNewAlarmWindowVC(with coordinates: CLLocationCoordinate2D) {
-        alarmWindowViewController = AlarmWindowViewController()
-        alarmWindowViewController.parentVC = self
+        newAlarmViewController = NewAlarmViewController()
+        newAlarmViewController.parentVC = self
         
-        alarmWindowViewController.alarm = Alarm()
-        alarmWindowViewController.alarm?.location = Location(clLocation2d: coordinates)
+        newAlarmViewController.coordinates = coordinates
         
-        view.addSubview(alarmWindowViewController.view)
-        alarmWindowViewController.view.snp.makeConstraints {
+        view.addSubview(newAlarmViewController.view)
+        newAlarmViewController.view.snp.makeConstraints {
             $0.height.width.equalToSuperview().multipliedBy(0.7)
             $0.centerX.centerY.equalToSuperview()
         }
-        alarmWindowViewController.didMove(toParentViewController: nil)
+        newAlarmViewController.didMove(toParentViewController: nil)
         view.layoutIfNeeded()
 
     }
     
     func presentExistingAlarmWindowVC() {
-        alarmWindowViewController = AlarmWindowViewController()
-        alarmWindowViewController.parentVC = self
+
         
-        view.addSubview(alarmWindowViewController.view)
-        alarmWindowViewController.view.snp.makeConstraints {
-            $0.height.width.equalToSuperview().multipliedBy(0.7)
-            $0.centerX.centerY.equalToSuperview()
-        }
-        alarmWindowViewController.didMove(toParentViewController: nil)
-        view.layoutIfNeeded()
         
     }
 
     func dismissAlarmWindowVC() {
         
         willMove(toParentViewController: nil)
-        alarmWindowViewController.view.removeFromSuperview()
-        alarmWindowViewController = nil
+        newAlarmViewController.view.removeFromSuperview()
+        newAlarmViewController = nil
         
         
         

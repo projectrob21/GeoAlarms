@@ -23,6 +23,12 @@ final class DataStore {
             realm.add(user)
         }
     }
+    
+    func deleteRealm() {
+        try! realm.write {
+            realm.deleteAll()
+        }
+    }
 
     
     

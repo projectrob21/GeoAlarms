@@ -16,7 +16,7 @@
 		E85D8BE41E90300B009A9618 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85D8BE31E90300B009A9618 /* ColorExtensions.swift */; };
 		E85D8BE91E92B593009A9618 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85D8BE81E92B593009A9618 /* LocationViewModel.swift */; };
 		E85D8BEB1E92B5AD009A9618 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85D8BEA1E92B5AD009A9618 /* NotificationViewModel.swift */; };
-		E876220C1E92CDB200651429 /* AlarmWindowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876220B1E92CDB200651429 /* AlarmWindowViewController.swift */; };
+		E876220C1E92CDB200651429 /* NewAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876220B1E92CDB200651429 /* NewAlarmViewController.swift */; };
 		E8DEFDC71E902AB600B58697 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DEFDC61E902AB600B58697 /* AppDelegate.swift */; };
 		E8DEFDC91E902AB600B58697 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DEFDC81E902AB600B58697 /* HomeViewController.swift */; };
 		E8DEFDCE1E902AB600B58697 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8DEFDCD1E902AB600B58697 /* Assets.xcassets */; };
@@ -35,7 +35,7 @@
 		E85D8BE31E90300B009A9618 /* ColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		E85D8BE81E92B593009A9618 /* LocationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		E85D8BEA1E92B5AD009A9618 /* NotificationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
-		E876220B1E92CDB200651429 /* AlarmWindowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmWindowViewController.swift; sourceTree = "<group>"; };
+		E876220B1E92CDB200651429 /* NewAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAlarmViewController.swift; sourceTree = "<group>"; };
 		E8DEFDC31E902AB600B58697 /* GeoAlarms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoAlarms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8DEFDC61E902AB600B58697 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8DEFDC81E902AB600B58697 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 			children = (
 				E8DEFDC61E902AB600B58697 /* AppDelegate.swift */,
 				E8DEFDC81E902AB600B58697 /* HomeViewController.swift */,
-				E876220B1E92CDB200651429 /* AlarmWindowViewController.swift */,
+				E876220B1E92CDB200651429 /* NewAlarmViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -272,7 +272,7 @@
 				E85D8BE91E92B593009A9618 /* LocationViewModel.swift in Sources */,
 				E8DEFDC71E902AB600B58697 /* AppDelegate.swift in Sources */,
 				E85D8BDC1E902FE4009A9618 /* Location.swift in Sources */,
-				E876220C1E92CDB200651429 /* AlarmWindowViewController.swift in Sources */,
+				E876220C1E92CDB200651429 /* NewAlarmViewController.swift in Sources */,
 				E85D8BE41E90300B009A9618 /* ColorExtensions.swift in Sources */,
 				E85D8BD81E902FD9009A9618 /* User.swift in Sources */,
 				E85D8BEB1E92B5AD009A9618 /* NotificationViewModel.swift in Sources */,

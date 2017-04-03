@@ -13,9 +13,9 @@ final class Alarm: Object {
 
     dynamic var id = ""
     dynamic var name: String? = nil
-//    dynamic var notes: String? = nil
+    dynamic var notes: String? = nil
     dynamic var location: Location?
-//    dynamic var radius: Float = 0.0
+    dynamic var radius: Float = 0.0
     dynamic var isActive: Bool = true
     //Sound
     

@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import CoreLocation
 
-class AlarmWindowViewController: UIViewController {
-
+class NewAlarmViewController: UIViewController {
+    
     var parentVC: HomeViewController?
     var user: User?
-    var alarm: Alarm?
+    var coordinates: CLLocationCoordinate2D?
     let alarmWindowView = AlarmWindowView()
     let store = DataStore.shared
     
@@ -26,8 +27,8 @@ class AlarmWindowViewController: UIViewController {
             $0.edges.equalToSuperview()
         }
         
-
-    
+        
+        
     }
     
     func configure() {
@@ -36,21 +37,27 @@ class AlarmWindowViewController: UIViewController {
         alarmWindowView.cancelButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
         alarmWindowView.addOrSaveAlarmButton.addTarget(self, action: #selector(addOrSaveAlarm), for: .touchUpInside)
     }
-
+    
     
     func addOrSaveAlarm() {
-        // create a new alarm and add to the user in datastore
-        print("add or save alarm tapped")
-        if alarm?.id == "" {
-            alarm?.id = "\(UUID())"
-            alarm?.name = alarmWindowView.nameTextField.text
-            
-            try! store.realm.write {
-                user?.alarms.append(alarm)
-            }
+
+        let newAlarm = Alarm()
+        newAlarm.id = "\(UUID())"
+        newAlarm.name = alarmWindowView.nameTextField.text
+        newAlarm.notes = alarmWindowView.notesTextField.text
+        
+        if let coordinates = coordinates {
+            newAlarm.location = Location(clLocation2d: coordinates)
+        } else {
+            print("no coordinates assigned to newAlarm")
+        }
+        
+        try! store.realm.write {
+            user?.alarms.append(newAlarm)
+            print("alarm has ID \(newAlarm.id)")
             print("user has \(user?.alarms.count) alarms")
         }
-    
+        
         dismissView()
     }
     
