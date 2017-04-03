@@ -9,12 +9,12 @@
 import UIKit
 import CoreLocation
 
-class NewAlarmViewController: UIViewController {
+class CreateAlarmViewController: UIViewController {
     
     var parentVC: HomeViewController?
     var user: User?
     var coordinates: CLLocationCoordinate2D?
-    let alarmWindowView = AlarmWindowView()
+    let newAlarmWindowView = CreateAlarmView()
     let store = DataStore.shared
     
     override func viewDidLoad() {
@@ -22,8 +22,8 @@ class NewAlarmViewController: UIViewController {
         
         configure()
         
-        view.addSubview(alarmWindowView)
-        alarmWindowView.snp.makeConstraints {
+        view.addSubview(newAlarmWindowView)
+        newAlarmWindowView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
         
@@ -34,8 +34,8 @@ class NewAlarmViewController: UIViewController {
     func configure() {
         user = store.user
         
-        alarmWindowView.cancelButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
-        alarmWindowView.addOrSaveAlarmButton.addTarget(self, action: #selector(addOrSaveAlarm), for: .touchUpInside)
+        newAlarmWindowView.cancelButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
+        newAlarmWindowView.addOrSaveAlarmButton.addTarget(self, action: #selector(addOrSaveAlarm), for: .touchUpInside)
     }
     
     
@@ -43,8 +43,8 @@ class NewAlarmViewController: UIViewController {
 
         let newAlarm = Alarm()
         newAlarm.id = "\(UUID())"
-        newAlarm.name = alarmWindowView.nameTextField.text
-        newAlarm.notes = alarmWindowView.notesTextField.text
+        newAlarm.name = newAlarmWindowView.nameTextField.text
+        newAlarm.notes = newAlarmWindowView.notesTextField.text
         
         if let coordinates = coordinates {
             newAlarm.location = Location(clLocation2d: coordinates)

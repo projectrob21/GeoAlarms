@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
     var googleMapView: GMSMapView!
     var markerArray = [GMSMarker]()
     
-    var newAlarmViewController: NewAlarmViewController!
+    var createAlarmViewController: CreateAlarmViewController!
 
     
     override func viewDidLoad() {
@@ -79,8 +79,8 @@ extension HomeViewController: GMSMapViewDelegate {
 //        Vibrates once
 
 //        CREATE MARKER
-//        let newMarker = GMSMarker(position: coordinate)
-//        newMarker.map = mapView
+        let newMarker = GMSMarker(position: coordinate)
+        newMarker.map = mapView
 
     }
     
@@ -130,17 +130,17 @@ extension HomeViewController: RequestLocationAlertDelegate {
     
     
     func presentNewAlarmWindowVC(with coordinates: CLLocationCoordinate2D) {
-        newAlarmViewController = NewAlarmViewController()
-        newAlarmViewController.parentVC = self
+        createAlarmViewController = CreateAlarmViewController()
+        createAlarmViewController.parentVC = self
         
-        newAlarmViewController.coordinates = coordinates
+        createAlarmViewController.coordinates = coordinates
         
-        view.addSubview(newAlarmViewController.view)
-        newAlarmViewController.view.snp.makeConstraints {
+        view.addSubview(createAlarmViewController.view)
+        createAlarmViewController.view.snp.makeConstraints {
             $0.height.width.equalToSuperview().multipliedBy(0.7)
             $0.centerX.centerY.equalToSuperview()
         }
-        newAlarmViewController.didMove(toParentViewController: nil)
+        createAlarmViewController.didMove(toParentViewController: nil)
         view.layoutIfNeeded()
 
     }
@@ -154,8 +154,8 @@ extension HomeViewController: RequestLocationAlertDelegate {
     func dismissAlarmWindowVC() {
         
         willMove(toParentViewController: nil)
-        newAlarmViewController.view.removeFromSuperview()
-        newAlarmViewController = nil
+        createAlarmViewController.view.removeFromSuperview()
+        createAlarmViewController = nil
         
         
         
